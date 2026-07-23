@@ -1,0 +1,14 @@
+# Web Framework
+Flask==3.0.2
+
+# PDF Processing
+PyMuPDF==1.23.26
+
+# AI Engine
+google-genai==1.1.0
+
+# PDF Report Generation
+reportlab==4.1.0
+
+# Environment Variables Management
+python-dotenv==1.0.1
