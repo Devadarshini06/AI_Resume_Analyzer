@@ -1,23 +1,35 @@
-# Import the Flask class from the flask package
-from flask import Flask
+# Import Flask and render_template function
+from flask import Flask, render_template
 
-# Initialize the Flask application
-# __name__ is a special built-in Python variable that tells Flask 
-# where to look for resources like templates and static files.
+# Initialize Flask application
 app = Flask(__name__)
 
-# Define a route for the homepage
-# The decorator @app.route('/') maps the root URL ("/") to this function
+# Route for the Home Page
 @app.route('/')
 def home():
     """
-    Function that handles requests to the root URL ("/").
-    Returns a simple welcoming text response to the client's browser.
+    Renders the homepage template (index.html) and passes
+    dynamic Python context data into the Jinja2 engine.
     """
-    return "AI Resume Analyzer Backend is Running Successfully!"
+    # Dynamic data we want to pass into HTML
+    title = "AI Resume Analyzer"
+    status = "Active & Ready"
+    project_features = [
+        "PDF Resume Text Extraction",
+        "Contact Information Extraction (Email, Phone, Links)",
+        "Automated Skill Matching & ATS Scoring",
+        "Google Gemini AI Insights & Suggestions",
+        "Downloadable PDF Analysis Reports"
+    ]
+    
+    # render_template searches in the 'templates/' folder
+    # We pass data as key=value arguments
+    return render_template(
+        'index.html', 
+        project_title=title, 
+        app_status=status, 
+        features=project_features
+    )
 
-# Check if this script is executed directly (not imported as a module in another script)
 if __name__ == '__main__':
-    # Run the Flask local development server
-    # debug=True enables live code reloading and detailed error messages in the browser
     app.run(debug=True, port=5000)
