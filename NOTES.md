@@ -11,13 +11,6 @@ Check your Python version:
 python3 --version
 ```
 
-## Clone the Repository
-
-```bash
-git clone https://github.com/Devadarshini06/AI_Resume_Analyzer.git
-cd AI_Resume_Analyzer
-```
-
 ## Create a Virtual Environment
 
 ```bash
