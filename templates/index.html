@@ -7,11 +7,9 @@
 
     <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <!-- Custom CSS via Flask url_for -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -30,13 +28,36 @@
 
     <!-- Main Container -->
     <div class="container my-5">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <h1 class="fw-bold display-6">Optimize Your Resume for ATS & AI</h1>
             <p class="text-muted lead">Upload your PDF resume and paste the job description to get instant match scores & actionable feedback.</p>
         </div>
 
+        <!-- Flash Messages Display Block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        <i class="bi bi-info-circle me-2"></i>{{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Success Result Card (Displays after successful upload) -->
+        {% if uploaded_file %}
+            <div class="card bg-light border-success mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-success"><i class="bi bi-file-check me-2"></i>File Received Successfully</h5>
+                    <p class="card-text mb-1"><strong>Filename:</strong> {{ uploaded_file }}</p>
+                    <p class="card-text"><strong>Job Description Length:</strong> {{ job_desc|length }} characters</p>
+                </div>
+            </div>
+        {% endif %}
+
         <!-- Submission Form -->
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="/" method="POST" enctype="multipart/form-data">
             <div class="row g-4">
                 
                 <!-- Left Column: PDF Resume Upload -->
@@ -49,7 +70,7 @@
                             <div class="upload-box mb-3">
                                 <i class="bi bi-cloud-arrow-up display-4 text-primary"></i>
                                 <h5 class="mt-2">Choose a PDF file</h5>
-                                <p class="text-muted small mb-3">Supports .PDF format up to 10MB</p>
+                                <p class="text-muted small mb-3">Supports .PDF format</p>
                                 <input type="file" class="form-control" id="resume_file" name="resume_file" accept=".pdf" required>
                             </div>
                         </div>
@@ -65,7 +86,7 @@
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="job_description" class="form-label text-muted small fw-bold">PASTE JOB DESCRIPTION HERE</label>
-                                <textarea class="form-control" id="job_description" name="job_description" rows="7" placeholder="Paste the full job posting requirements, required skills, and responsibilities here..." required></textarea>
+                                <textarea class="form-control" id="job_description" name="job_description" rows="7" placeholder="Paste the job posting requirements here..." required></textarea>
                             </div>
                         </div>
                     </div>
