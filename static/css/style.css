@@ -1,101 +1,114 @@
-/* Modern Styling for AI Resume Analyzer */
+/* Custom SaaS Theme for AI Resume Analyzer */
 
 :root {
-    --primary-color: #0d6efd;
-    --primary-hover: #0b5ed7;
-    --bg-light: #f4f6f9;
-    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --dark-bg: #0f172a;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
 }
 
 body {
-    background-color: var(--bg-light);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: #2c3e50;
+    background-color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
     min-height: 100vh;
 }
 
-/* Header Navbar Branding */
+/* Modern Header Navbar */
 .navbar {
-    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    background: var(--dark-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .navbar-brand {
     font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 1.25rem;
+    letter-spacing: -0.3px;
+    font-size: 1.2rem;
 }
 
-/* Main Cards */
+/* Hero Section Formatting */
+.display-6 {
+    letter-spacing: -0.5px;
+    color: #0f172a;
+}
+
+/* Main UI Cards */
 .card {
-    border: none;
-    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
     box-shadow: var(--card-shadow);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
 }
 
 .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
 }
 
 .card-header {
-    border-top-left-radius: 14px !important;
-    border-top-right-radius: 14px !important;
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+    border-bottom: 1px solid var(--border-color);
     font-weight: 600;
-    font-size: 1rem;
-    padding: 1rem 1.25rem;
+    letter-spacing: -0.2px;
 }
 
-/* File Upload Box */
+/* Drag and Drop File Upload Area */
 .upload-box {
     border: 2px dashed #cbd5e1;
-    border-radius: 10px;
-    padding: 35px 20px;
+    border-radius: 12px;
+    padding: 40px 20px;
     text-align: center;
     background-color: #f8fafc;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease-in-out;
 }
 
 .upload-box:hover {
-    border-color: var(--primary-color);
-    background-color: #f0f7ff;
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    transform: scale(0.99);
 }
 
-/* Form Inputs */
+/* Form Styling */
 .form-control {
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
 }
 
 .form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
-/* Analyze Button */
+/* Primary Action Button */
 .btn-analyze {
-    padding: 14px 40px;
-    font-size: 1.1rem;
+    padding: 14px 44px;
+    font-size: 1.05rem;
     font-weight: 600;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border-radius: 12px;
+    background-color: var(--primary);
     border: none;
     transition: all 0.2s ease;
 }
 
 .btn-analyze:hover {
-    background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(13, 110, 253, 0.3);
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
 }
 
-/* Textarea Preview Box */
+/* Preview Box Readonly Styling */
 textarea[readonly] {
-    background-color: #f8fafc !important;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    background-color: #f1f5f9 !important;
+    color: #334155;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
 }
