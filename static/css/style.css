@@ -1,55 +1,101 @@
-/* Custom Styles for AI Resume Analyzer */
+/* Modern Styling for AI Resume Analyzer */
+
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0b5ed7;
+    --bg-light: #f4f6f9;
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
 
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #212529;
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #2c3e50;
+    min-height: 100vh;
 }
 
 /* Header Navbar Branding */
+.navbar {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 0.5px;
+    font-size: 1.25rem;
 }
 
-/* Main Dashboard Cards */
+/* Main Cards */
 .card {
     border: none;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out;
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #ffffff;
 }
 
 .card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
 .card-header {
-    border-top-left-radius: 12px !important;
-    border-top-right-radius: 12px !important;
+    border-top-left-radius: 14px !important;
+    border-top-right-radius: 14px !important;
     font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
 }
 
-/* Custom File Upload Box */
+/* File Upload Box */
 .upload-box {
-    border: 2px dashed #0d6efd;
-    border-radius: 8px;
-    padding: 30px 20px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 35px 20px;
     text-align: center;
-    background-color: #f0f7ff;
+    background-color: #f8fafc;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .upload-box:hover {
-    background-color: #e2f0ff;
+    border-color: var(--primary-color);
+    background-color: #f0f7ff;
+}
+
+/* Form Inputs */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
 }
 
 /* Analyze Button */
 .btn-analyze {
-    padding: 12px 30px;
+    padding: 14px 40px;
     font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 8px;
-    letter-spacing: 0.5px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-analyze:hover {
+    background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(13, 110, 253, 0.3);
+}
+
+/* Textarea Preview Box */
+textarea[readonly] {
+    background-color: #f8fafc !important;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
